@@ -5,14 +5,14 @@ Thanks to **compila** you can create a single html, css, js file from multiple p
 You don't have to learn any new script language, no complicated configuration, you just prepare a simple json to define the output structure.
 ex:
 ```json
- {
-     "build": [
-         {"files": "assets/*.css", "dest": "compila/etoile.css", "fn": "fn_build"},
-         { "files": "assets/*.js", "dest": "compila/etoile.js" , "fn": "fn_build"},
-         {"files": "home.html", "dest": "compila/index.html", "fn": "fn_build"}
-     ], 
-     "copy" }, {"files": "copy_origin/*", "dest": "assets/", "fn": "fn_copy"}
-   }
+{
+    "build": [
+        {"files": "assets/*.css", "dest": "compila/etoile.css", "fn": "fn_build"},
+        { "files": "assets/*.js", "dest": "compila/etoile.js" , "fn": "fn_build"},
+        {"files": "home.html", "dest": "compila/index.html", "fn": "fn_build"}
+    ], 
+    "copy": [ {"files": "copy_origin/*", "dest": "assets/", "fn": "fn_copy"}]
+}
 ```
 # How to use.
 
@@ -42,6 +42,8 @@ In the file you can write either the name of the file to compile or use Special 
 
 you can pass the -w or -watch parameter to monitor files and recompile them if modified
 
+    php compila.php -build -w
+
 # Include multiple files inside the original file.
 
 Within the files to be compiled you can use the "e()" function that allows you to include a file inside the file you are compiling. In this way not only is any php code executed, but if you use watch, the file is monitored and the compilation rerun if modified.
@@ -66,7 +68,7 @@ From command line:
 
     php compara.php -copy folder_name
 
-Create new functions
+# extend with your functions
 
 you can create new functions such as copy or build.
 To do this you have to create a php file called compila_extend.php to extend the new function
@@ -74,14 +76,14 @@ example minify
 
 in the json you can add:
 ```json
-"minify" : {
+"my_minify" : {
     "files": "compila/*", 
     "dest": "compila/", 
     "fn": "my_minify_function"
     }
 ```
-From the command line you can run
+From the command line you can run. Minify is not included in the default functions!!
 
-    php compila.php -minify
+    php compila.php -my_minify
 
-you can see inside compila.php the copy function for how it should be structured
+you can see inside compila.php the copy() function for how it should be structured

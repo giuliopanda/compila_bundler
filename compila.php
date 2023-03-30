@@ -12,12 +12,12 @@
  * 
  * eg: 
  * {
- * "build": [
- * {"files": "assets/*.css", "dest": "complia/etoile.css", "fn": "fn_build"},
- * {"files": "assets/*.js", "dest": "complia/etoile.js" , "fn": "fn_build"},
- * {"files": "home.html", "dest": "complia/index.html", "fn": "fn_build"}
- * ], 
- * "copy" : {"files": "copy_origin/*", "dest": "assets/", "fn": "fn_copy"},
+ *     "build": [
+ *         {"files": "assets/*.css", "dest": "compila/etoile.css", "fn": "fn_build"},
+ *         { "files": "assets/*.js", "dest": "compila/etoile.js" , "fn": "fn_build"},
+ *         {"files": "home.html", "dest": "compila/index.html", "fn": "fn_build"}
+ *     ], 
+ *     "copy": [ {"files": "copy_origin/*", "dest": "assets/", "fn": "fn_copy"}]
  * }
  * 
  * * How to use.
