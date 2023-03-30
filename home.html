@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>my_page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <?php 
+        $html = glob("assets/*.html");
+        foreach ($html as $file) {
+            e($file);
+        }
+    ?>
+    <script src="action.js"></script>
+</body>
+</html>
